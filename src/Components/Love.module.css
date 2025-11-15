@@ -272,6 +272,9 @@ time {
   position: relative;
   overflow: hidden;
 }
+.proposalText {
+  font-size: 17px;
+}
 
 /* Fireworks effect */
 @keyframes fireworks {
@@ -320,6 +323,10 @@ time {
 }
 
 /* Proposal YES Button with ring glow */
+.proposalButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
 .yesBtn {
   background-color: #ff5c8a;
   color: #fff;
@@ -401,6 +408,9 @@ time {
   }
   .galleryImg {
     height: 500px;
+  }
+  .proposalButtons {
+    justify-content: space-between;
   }
   .btnPrimary,
   .btnSecondary,

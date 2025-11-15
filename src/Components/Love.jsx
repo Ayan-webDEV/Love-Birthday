@@ -204,7 +204,7 @@ export default function LovePage() {
                       letterSpacing: "0.17px",
                     }}
                   >
-                    Happy Birthday, Sara ❤️ Aap meri zindagi ka sabse pyari
+                    Happy Birthday, Sara ❤️ Aap meri zindagi ka sabse pyara
                     hissa ho. Har pal aapke saath special lagta hai, aur main
                     hamesha aapke saath rahna chahta hoon.
                   </span>
@@ -375,17 +375,23 @@ export default function LovePage() {
                 transition={{ duration: 0.8 }}
               >
                 <p className={style.proposalText}>
-                  Sara…
+                  <span className="fs-4 fw-bold" style={{ color: "#F88379" }}>
+                    Sara…
+                  </span>
                   <br />
                   <br />
-                  Har pal, har din, har yaad ne mujhe yeh ehsaas dilaya hai ki
-                  tum meri zindagi ka sabse khoobsurat hissa ho. Tumhari
-                  muskurahat, tumhari awaaz, tumhara pyaar — sabne mujhe behtar
-                  insaan banaya hai.
+                  <span style={{ display: "block" }}>
+                    Zindagi ke har pal ne, har din ne, aur har yaad ne mujhe yeh
+                    mehsoos karaya hai ki aap meri duniya ka sabse khoobsurat
+                    rang ho. aapki hasi, aapki baatein, aur aapka pyaar meri
+                    rooh ko sukoon deta hai.
+                  </span>
                   <br />
                   <br />
-                  Aaj tumhare janamdin par, ek chhota sa sawaal poochna chahta
-                  hoon…
+                  <span>
+                    Aaj aapke birthday par, ek chhota sa sawaal poochna chahta
+                    hoon…
+                  </span>
                 </p>
 
                 <motion.h3
@@ -394,7 +400,10 @@ export default function LovePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
                 >
-                  ❤️ Will You Be Mine, Sara? ❤️
+                  <span className="d-block mb-5 pt-2">
+                    ❤️ Will You Be{" "}
+                    <span style={{ color: "#F88379" }}>Mine</span>, Sara? ❤️
+                  </span>
                 </motion.h3>
 
                 <div className={style.proposalButtons}>
