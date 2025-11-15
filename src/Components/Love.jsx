@@ -95,10 +95,12 @@ export default function LovePage() {
   ];
 
   const shayari = [
-    "Teri muskurahaton pe hai haq mera,",
-    "Teri khushi se hi hai meri duniya saji —",
-    "Janamdin Mubarak ho Sara meri jaan,",
-    "Har pal tera saath ho, yeh dua hai meri rab se maangi. ❤️",
+    "بڑا ہی خاموش سا______ انداز ہے تمہارا",
+    "سمجھ نہیں آتا، فدا ہو جاؤں یا فنا ہو جاؤں",
+    "میری یادوں کی تحریر ہو تم",
+    "میری راتوں کی تاخیر ہو تم",
+    "کیا ہوا اگر ملے نہیں ہم",
+    "میرے خوابوں کی تعبیر ہو تم",
   ];
 
   return (
@@ -204,9 +206,9 @@ export default function LovePage() {
                       letterSpacing: "0.17px",
                     }}
                   >
-                    Happy Birthday, Sara ❤️ Tum meri zindagi ka sabse pyara
-                    hissa ho. Har pal tumhare saath special lagta hai, aur main
-                    hamesha tumhare saath rahna chahta hoon.
+                    Happy Birthday, Sara ❤️ Aap meri zindagi ka sabse pyari
+                    hissa ho. Har pal aapke saath special lagta hai, aur main
+                    hamesha aapke saath rahna chahta hoon.
                   </span>
                 </motion.p>
 
@@ -310,15 +312,41 @@ export default function LovePage() {
                 className={style.letterCard}
               >
                 <p className={style.letterText}>
-                  Meri pyari Sara,
+                  <span className="fw-bold d-inline-block me-2">Name :</span>{" "}
+                  Meri pyari Sara, <br />
+                  <span>
+                    <span className="fw-bold d-inline-block me-2">
+                      Address :
+                    </span>{" "}
+                    Heart.
+                  </span>{" "}
                   <br />
-                  Aaj tera janamdin hai, aur main dua करता हूँ ki har subah teri
-                  muskurahat se ho aur har raat tere sapno se bhari ho.
+                  <span>
+                    <span className="fw-bold d-inline-block me-2">
+                      Subject :
+                    </span>{" "}
+                    Love.
+                  </span>
+                  <span className="d-block my-2 pt-1">
+                    <span className="fw-bold d-inline-block me-2">Date :</span>{" "}
+                    16/11/2025
+                  </span>{" "}
+                  <span className="d-block my-2 pt-3 fw-semibold">
+                    Dear Sara,
+                  </span>
+                  <span>
+                    Aaj aap birthday hai, aur main bas itna kehna chahta hoon ki
+                    meri zindagi aapke bina adhoori hai. aap meri har khushi ka
+                    sabab ho, aur main hamesha aapke saath har pal khushi se
+                    jeena chahta hoon.
+                  </span>
                 </p>
                 <div className={style.shayariBox}>
-                  <h3>Hinglish Shayari</h3>
                   {shayari.map((line, i) => (
-                    <div key={i} className={style.shayariLine}>
+                    <div
+                      key={i}
+                      className={`${i === 2 && "mt-5"} ${style.shayariLine}`}
+                    >
                       {line}
                     </div>
                   ))}
