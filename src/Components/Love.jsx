@@ -108,11 +108,11 @@ export default function LovePage() {
   };
 
   const gallery = [
-    img2,
     img4,
+    img2,
     img6,
-    img5,
     img3,
+    img5,
     img1,
     img7,
     img8,
