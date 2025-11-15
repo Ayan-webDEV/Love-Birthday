@@ -181,7 +181,7 @@ export default function LovePage() {
             {/* Audio */}
             <audio
               ref={audioRef}
-              src={num === 1 ? "/music-1.m4a" : "/music-2.m4a"}
+              src={num === 1 ? "/music-2.m4a" : "/music-1.m4a"}
               loop
               preload="auto"
               //   muted
