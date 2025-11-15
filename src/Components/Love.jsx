@@ -413,7 +413,7 @@ export default function LovePage() {
               >
                 <p className={style.proposalText}>
                   <span className="fs-4 fw-bold" style={{ color: "#F88379" }}>
-                    Sara…
+                    Kashish…
                   </span>
                   <br />
                   <br />
