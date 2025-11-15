@@ -181,7 +181,7 @@ export default function LovePage() {
             {/* Audio */}
             <audio
               ref={audioRef}
-              src={num === 1 ? "/music-2.m4a" : "/music-1.m4a"}
+              src={num === 1 ? "/music-1.m4a" : "/music-2.m4a"}
               loop
               preload="auto"
               //   muted
@@ -337,26 +337,35 @@ export default function LovePage() {
               >
                 <p className={style.letterText}>
                   <span className="fw-bold d-inline-block me-2">Name :</span>{" "}
-                  Meri pyari Sara, <br />
+                  <span style={{ color: "#F88379", fontWeight: "500" }}>
+                    Meri pyari Sara,
+                  </span>{" "}
+                  <br />
                   <span>
                     <span className="fw-bold d-inline-block me-2">
                       Address :
                     </span>{" "}
-                    Heart.
+                    <span style={{ color: "#F88379", fontWeight: "500" }}>
+                      Heart.
+                    </span>
                   </span>{" "}
                   <br />
                   <span>
                     <span className="fw-bold d-inline-block me-2">
                       Subject :
                     </span>{" "}
-                    Love.
+                    <span style={{ color: "#F88379", fontWeight: "500" }}>
+                      Love.
+                    </span>
                   </span>
                   <span className="d-block my-2 pt-1">
                     <span className="fw-bold d-inline-block me-2">Date :</span>{" "}
-                    16/11/2025
+                    <span style={{ color: "#F88379", fontWeight: "500" }}>
+                      16/11/2025
+                    </span>
                   </span>{" "}
                   <span className="d-block my-2 pt-3 fw-semibold">
-                    Dear Sara,
+                    Dear <span style={{ color: "#F88379" }}>Babu</span>,
                   </span>
                   <span>
                     Aaj aap birthday hai, aur main bas itna kehna chahta hoon ki
@@ -378,7 +387,9 @@ export default function LovePage() {
                 <p className={`pt-2 ${style.letterSign}`}>
                   Your lovingly,
                   <br />
-                  <strong style={{ letterSpacing: "0.3px" }}>Ayan</strong>
+                  <strong style={{ letterSpacing: "0.3px", color: "#F88379" }}>
+                    Ayan
+                  </strong>
                 </p>
               </motion.div>
             </section>
