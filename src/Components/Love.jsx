@@ -227,7 +227,7 @@ export default function LovePage() {
               {/* <div className={style.galleryGrid}> */}
               <div className="row">
                 {gallery.map((src, idx) => (
-                  <div className="col-12 col-sm-6 col-lg-3 mb-4 pb-2">
+                  <div key={idx} className="col-12 col-sm-6 col-lg-3 mb-4 pb-2">
                     <motion.div
                       key={idx}
                       initial={{ opacity: 0, y: 30 }}
