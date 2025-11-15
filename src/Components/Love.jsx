@@ -193,14 +193,14 @@ export default function LovePage() {
                   transition={{ delay: 0.4 }}
                   className={style.heroSubtext}
                 >
-                  <span>
+                  <span className="d-block py-3">
                     A little digital surprise from Ayan — crafted with love.
                   </span>
                   <span
-                    className="d-block my-5 pb-2"
+                    className="d-block my-5 pt-1 pb-3"
                     style={{
                       fontFamily: "nunito",
-                      fontSize: "19px",
+                      fontSize: "20px",
                       letterSpacing: "0.17px",
                     }}
                   >
