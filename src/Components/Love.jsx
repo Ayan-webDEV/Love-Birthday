@@ -23,9 +23,15 @@ import img18 from "../assets/sara-18.jpg";
 import img19 from "../assets/sara-19.jpg";
 
 export default function LovePage() {
-  const [musicPlaying, setMusicPlaying] = useState(true);
+  const [musicPlaying, setMusicPlaying] = useState(false);
   const audioRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
+
+  const [num, setNum] = useState(1); // music number
+  const [clickCount, setClickCount] = useState(0);
+
+  const [accepted, setAccepted] = useState(false);
+  const [showHearts, setShowHearts] = useState(false);
 
   //   const num = Math.floor(Math.random() * 2) + 1;
   //   console.log(num);
@@ -48,35 +54,13 @@ export default function LovePage() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const attemptPlay = async () => {
-      try {
-        audio.muted = true;
-        await audio.play(); // Autoplay attempt
-        audio.muted = false; // Immediately unmute after allowed
-        audio.volume = 0.6;
-        setMusicPlaying(true);
-      } catch (err) {
-        console.log("Autoplay blocked.");
-        setMusicPlaying(false);
-      }
-    };
-
-    // TRY autoplay
-    attemptPlay();
-
-    const unlock = () => {
-      attemptPlay();
-      window.removeEventListener("click", unlock);
-    };
-
-    const unlockScroll = () => {
-      attemptPlay();
-      window.removeEventListener("scroll", unlockScroll);
-    };
-
-    window.addEventListener("click", unlock);
-    window.addEventListener("scroll", unlockScroll);
-  }, []);
+    if (musicPlaying) {
+      audio.play();
+      audio.volume = 0.6;
+    } else {
+      audio.pause();
+    }
+  }, [musicPlaying]);
 
   const toggleMusic = async () => {
     const audio = audioRef.current;
@@ -89,6 +73,38 @@ export default function LovePage() {
       audio.pause();
       setMusicPlaying(false);
     }
+  };
+
+  const handleMusicChange = () => {
+    setClickCount((prev) => {
+      const newCount = prev + 1;
+
+      // Every 2 clicks → change num
+      if (newCount % 2 === 0) {
+        setNum((prevNum) => (prevNum === 1 ? 2 : 1));
+      }
+
+      return newCount;
+    });
+
+    toggleMusic(); // your play/pause logic
+  };
+
+  const handleYes = () => {
+    setAccepted(true);
+    setShowHearts(true);
+
+    // Hide hearts after 10 seconds
+    setTimeout(() => {
+      setShowHearts(false);
+    }, 10000);
+
+    setTimeout(() => {
+      document.getElementById("yes-surprise")?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 400);
   };
 
   const gallery = [
@@ -128,7 +144,7 @@ export default function LovePage() {
         <div className="container-fluid">
           <div className={style.topbarInner}>
             <div className={style.names}>Ayan ❤️ Sara</div>
-            <button className={style.musicBtn} onClick={toggleMusic}>
+            <button className={style.musicBtn} onClick={handleMusicChange}>
               {musicPlaying ? "Pause Music" : "Play Music"}
             </button>
           </div>
@@ -165,7 +181,7 @@ export default function LovePage() {
             {/* Audio */}
             <audio
               ref={audioRef}
-              src="/music-2.m4a"
+              src={num === 1 ? "/music-2.m4a" : "/music-1.m4a"}
               loop
               preload="auto"
               //   muted
@@ -417,10 +433,68 @@ export default function LovePage() {
                 </motion.h3>
 
                 <div className={style.proposalButtons}>
-                  <button className={style.yesBtn}>YES ❤️</button>
+                  <button className={style.yesBtn} onClick={handleYes}>
+                    YES ❤️
+                  </button>
                   <button className={style.noBtn}>NO 😭</button>
                 </div>
               </motion.div>
+              {accepted && (
+                <motion.div
+                  id="yes-surprise"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className={style.surpriseBox}
+                >
+                  <h2 className={style.surpriseHeading}>💖 You Said YES! 💖</h2>
+                  <p className={style.surpriseText}>
+                    Aaj se aap sirf meri nahi… balki meri zindagi ka sabse
+                    khoobsurat hissa ho. Thank you, Sara, for choosing me. I
+                    promise to love you forever, Endever, Endever,
+                    Endever........... ❤️❤️❤️❤️❤️❤️❤️❤️
+                  </p>
+                </motion.div>
+              )}
+              {/* <div className={style.heartsWrapper}>
+                {showHearts &&
+                  [...Array(20)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className={style.floatingHeart}
+                      initial={{
+                        opacity: 0,
+                        scale: 0.6,
+                        x: 0,
+                        y: 0,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                        x: Math.random() * 300 - 150,
+                        y: Math.random() * 300 - 150,
+                      }}
+                      transition={{ duration: 1.2 }}
+                    >
+                      ❤️
+                    </motion.div>
+                  ))}
+              </div> */}
+              <div className={style.heartsWrapper}>
+                {showHearts &&
+                  [...Array(20)].map((_, i) => (
+                    <div
+                      key={i}
+                      className={style.floatingHeart}
+                      style={{
+                        left: `${Math.random() * 100}vw`,
+                        top: `${Math.random() * 100}vh`,
+                      }}
+                    >
+                      ❤️
+                    </div>
+                  ))}
+              </div>
             </section>
           </div>
         </div>
