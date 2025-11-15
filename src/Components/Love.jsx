@@ -107,13 +107,11 @@ export default function LovePage() {
     <>
       <nav className={style.topbar}>
         <div className="container-fluid">
-          <div className="container">
-            <div className={style.topbarInner}>
-              <div className={style.names}>Ayan ❤️ Sara</div>
-              <button className={style.musicBtn} onClick={toggleMusic}>
-                {musicPlaying ? "Pause Music" : "Play Music"}
-              </button>
-            </div>
+          <div className={style.topbarInner}>
+            <div className={style.names}>Ayan ❤️ Sara</div>
+            <button className={style.musicBtn} onClick={toggleMusic}>
+              {musicPlaying ? "Pause Music" : "Play Music"}
+            </button>
           </div>
         </div>
       </nav>
@@ -351,10 +349,10 @@ export default function LovePage() {
                     </div>
                   ))}
                 </div>
-                <p className={style.letterSign}>
-                  Hamesha tera,
+                <p className={`pt-2 ${style.letterSign}`}>
+                  Your lovingly,
                   <br />
-                  <strong>Ayan</strong>
+                  <strong style={{ letterSpacing: "0.3px" }}>Ayan</strong>
                 </p>
               </motion.div>
             </section>

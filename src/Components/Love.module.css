@@ -60,7 +60,7 @@ time {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 12px 26px;
+  padding: 12px 80px;
   background-color: rgba(14, 19, 31, 0.95);
   z-index: 10;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
@@ -388,6 +388,9 @@ time {
   .heroButtons {
     flex-direction: column;
     margin: 60px 0 0;
+  }
+  .topbar {
+    padding: 12px 18px;
   }
   .btnPrimary,
   .btnSecondary {
