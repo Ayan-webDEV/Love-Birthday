@@ -23,9 +23,12 @@ import img18 from "../assets/sara-18.jpg";
 import img19 from "../assets/sara-19.jpg";
 
 export default function LovePage() {
-  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(true);
   const audioRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
+
+  //   const num = Math.floor(Math.random() * 2) + 1;
+  //   console.log(num);
 
   const hearts = Array.from({ length: 14 }).map((_, i) => ({
     id: i,
@@ -44,31 +47,47 @@ export default function LovePage() {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    const tryPlay = async () => {
+
+    const attemptPlay = async () => {
       try {
+        audio.muted = true;
+        await audio.play(); // Autoplay attempt
+        audio.muted = false; // Immediately unmute after allowed
         audio.volume = 0.6;
-        await audio.play();
         setMusicPlaying(true);
-      } catch (e) {
+      } catch (err) {
+        console.log("Autoplay blocked.");
         setMusicPlaying(false);
       }
     };
-    tryPlay();
+
+    // TRY autoplay
+    attemptPlay();
+
+    const unlock = () => {
+      attemptPlay();
+      window.removeEventListener("click", unlock);
+    };
+
+    const unlockScroll = () => {
+      attemptPlay();
+      window.removeEventListener("scroll", unlockScroll);
+    };
+
+    window.addEventListener("click", unlock);
+    window.addEventListener("scroll", unlockScroll);
   }, []);
 
   const toggleMusic = async () => {
     const audio = audioRef.current;
     if (!audio) return;
-    if (musicPlaying) {
+
+    if (audio.paused) {
+      await audio.play();
+      setMusicPlaying(true);
+    } else {
       audio.pause();
       setMusicPlaying(false);
-    } else {
-      try {
-        await audio.play();
-        setMusicPlaying(true);
-      } catch (e) {
-        setMusicPlaying(false);
-      }
     }
   };
 
@@ -146,20 +165,11 @@ export default function LovePage() {
             {/* Audio */}
             <audio
               ref={audioRef}
-              src="https://cdn.jsdelivr.net/gh/anars/blank-audio@master/1-second-of-silence.mp3"
+              src="/music-2.m4a"
               loop
               preload="auto"
+              //   muted
             />
-
-            {/* Topbar */}
-            {/* <nav className={style.topbar}>
-            <div className={style.topbarInner}>
-              <div className={style.names}>Ayan ❤️ Sara</div>
-              <button className={style.musicBtn} onClick={toggleMusic}>
-                {musicPlaying ? "Pause Music" : "Play Music"}
-              </button>
-            </div>
-          </nav> */}
 
             {/* Hero */}
             <header
