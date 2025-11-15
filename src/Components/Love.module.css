@@ -1,0 +1,393 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* overflow: hidden; */
+}
+
+body {
+  background: linear-gradient(135deg, #0e131f, #2b0d2d, #46114b);
+  font-family: "nunito";
+}
+time {
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  color: #ffdab9;
+}
+/* Wrapper with romantic gradient background */
+.loveWrapper {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Hearts */
+.heartsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.heart {
+  position: absolute;
+  bottom: 0;
+  animation-name: floatHeart;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.heartSvg {
+  width: 100%;
+  height: 100%;
+}
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Topbar */
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 12px 26px;
+  background-color: rgba(14, 19, 31, 0.95);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.topbarInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.names {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ff5c8a;
+}
+.musicBtn {
+  padding: 7px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 2px solid #ff5c8a;
+  background-color: transparent;
+  color: #ff5c8a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.musicBtn:hover {
+  background-color: #ff5c8a;
+  color: #0e131f;
+}
+
+/* Hero */
+.heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 0 16px;
+  z-index: 2;
+  position: relative;
+}
+.heroCard {
+  max-width: 600px;
+}
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #ff5c8a;
+}
+.heroSubtext {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: #ffffffaa;
+}
+.heroButtons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btnPrimary,
+.btnSecondary {
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btnPrimary {
+  background-color: #ff5c8a;
+  color: #fff;
+}
+.btnPrimary:hover {
+  background-color: #ff85a0;
+}
+.btnSecondary {
+  background-color: transparent;
+  color: #ff5c8a;
+  border: 2px solid #ff5c8a;
+}
+.btnSecondary:hover {
+  background-color: #ff5c8a;
+  color: #0e131f;
+}
+
+/* Gallery */
+.gallerySection {
+  padding: 80px 16px 40px;
+  text-align: center;
+}
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #ff5c8a;
+}
+
+.galleryCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+}
+.galleryImg {
+  height: 370px;
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  /* object-position: top; */
+  object-position: 50% 20%;
+  transition: transform 0.3s ease;
+  gap: 24px;
+  cursor: pointer;
+}
+.galleryCard:hover .galleryImg {
+  transform: scale(1.05);
+}
+.galleryText {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+}
+.gName {
+  font-weight: 600;
+}
+.gCaption {
+  font-size: 0.9rem;
+}
+
+/* Timeline */
+.timelineSection {
+  /* padding: 80px 16px 40px;
+  margin: 0 auto; */
+
+  padding: 80px 16px 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.timelineList {
+  list-style: none;
+  padding-left: 0;
+  max-width: 700px;
+  margin: 0 auto;
+  counter-reset: timeline;
+}
+.timelineItem {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 40px;
+}
+.timelineNumber {
+  counter-increment: timeline;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ff5c8a;
+}
+
+/* Letter */
+.letterSection {
+  padding: 80px 16px 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.letterCard {
+  background-color: #161b2a;
+  padding: 24px;
+  border-radius: 12px;
+}
+.letterText {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.shayariBox {
+  margin: 16px 0;
+}
+.shayariLine {
+  font-style: italic;
+  margin-bottom: 6px;
+  color: #ff85a0;
+}
+.letterSign {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+/* Proposal Section */
+.proposalSection {
+  padding: 80px 16px 120px;
+  text-align: center;
+  position: relative;
+}
+.proposalCard {
+  background-color: #161b2a;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fireworks effect */
+@keyframes fireworks {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.firework {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff5c8a;
+  animation: fireworks 0.8s linear infinite;
+}
+
+/* Confetti */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+.confetti {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #ff85a0;
+  top: -10px;
+  animation: confettiFall linear infinite;
+  animation-duration: 3s;
+  border-radius: 50%;
+}
+
+/* Proposal YES Button with ring glow */
+.yesBtn {
+  background-color: #ff5c8a;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px #ff5c8a, 0 0 20px #ff5c8a;
+  animation: pulse 1.5s infinite alternate;
+  transition: all 0.3s ease;
+}
+.yesBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff5c8a, 0 0 30px #ff5c8a;
+}
+
+/* Pulse for YES button ring glow */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px #ff5c8a, 0 0 20px #ff5c8a;
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff5c8a, 0 0 30px #ff5c8a;
+  }
+}
+
+/* NO button */
+.noBtn {
+  background-color: #333;
+  color: #ff5c8a;
+  border: 2px solid #ff5c8a;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.noBtn:hover {
+  background-color: #ff5c8a;
+  color: #0e131f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  .proposalQuestion {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+  .names {
+    font-size: 1.5rem;
+  }
+  .btnPrimary,
+  .btnSecondary,
+  .yesBtn,
+  .noBtn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
