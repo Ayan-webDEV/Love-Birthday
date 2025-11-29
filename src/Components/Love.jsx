@@ -22,6 +22,15 @@ import img17 from "../assets/sara-17.jpg";
 import img18 from "../assets/sara-18.jpg";
 import img19 from "../assets/sara-19.jpg";
 
+import img20 from "../assets/sara-20.jpg";
+import img21 from "../assets/sara-21.jpg";
+import img22 from "../assets/sara-22.jpg";
+import img23 from "../assets/sara-23.jpg";
+import img24 from "../assets/sara-24.jpg";
+import img25 from "../assets/sara-25.jpg";
+import img26 from "../assets/sara-26.jpg";
+import img27 from "../assets/sara-27.jpg";
+
 export default function LovePage() {
   const [musicPlaying, setMusicPlaying] = useState(false);
   const audioRef = useRef(null);
@@ -56,7 +65,7 @@ export default function LovePage() {
 
     if (musicPlaying) {
       audio.play();
-      audio.volume = 0.6;
+      audio.volume = 0.7;
     } else {
       audio.pause();
     }
@@ -137,6 +146,8 @@ export default function LovePage() {
     "کیا ہوا اگر ملے نہیں ہم",
     "میرے خوابوں کی تعبیر ہو تم",
   ];
+
+  const letImages = [img21, img20, img25, img22, img23, img27, img26, img24];
 
   return (
     <>
@@ -261,7 +272,11 @@ export default function LovePage() {
                       transition={{ duration: 0.4, delay: idx * 0.08 }}
                       className={style.galleryCard}
                     >
-                      <img src={src} className={style.galleryImg} />
+                      <img
+                        src={src}
+                        className={style.galleryImg}
+                        alt="I Love You Sara --Ayan"
+                      />
                       <div className={style.galleryText}>
                         <div className={style.gName}>Sara</div>
                         <div className={style.gCaption}>
@@ -393,6 +408,33 @@ export default function LovePage() {
                 </p>
               </motion.div>
             </section>
+            {/*  */}
+            <div className="row mt-5">
+              {letImages.map((img, idx) => (
+                <div key={idx} className="col-12 col-sm-6 col-lg-4 mb-4 pb-2 ">
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    className={`mx-auto ${style.galleryCard} ${style.letterImgCard}`}
+                  >
+                    <img
+                      src={img}
+                      className={`${style.galleryImg} ${style.letterImg}`}
+                      alt="I Love You Sara --Ayan"
+                    />
+                    <div className={style.galleryText}>
+                      <div className={style.gName}>Sara</div>
+                      <div className={style.gCaption}>
+                        A sweet memory by Ayan
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+            {/*  */}
 
             {/* Proposal */}
             <section id="proposal" className={style.proposalSection}>

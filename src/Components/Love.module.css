@@ -256,6 +256,13 @@ time {
   margin-top: 16px;
   font-weight: 600;
 }
+.letterImgCard {
+  width: 85%;
+}
+.letterImg {
+  height: 450px;
+  width: 100%;
+}
 
 /* Proposal Section */
 .proposalSection {
@@ -441,8 +448,14 @@ time {
   .sectionTitle {
     font-size: 1.7rem;
   }
+
   .proposalQuestion {
     font-size: 1.2rem;
+  }
+}
+@media (max-width: 992px) {
+  .letterImgCard {
+    width: 100%;
   }
 }
 @media (max-width: 480px) {
@@ -468,6 +481,9 @@ time {
   }
   .galleryImg {
     height: 500px;
+  }
+  .letterImgCard {
+    width: 100%;
   }
   .proposalButtons {
     justify-content: space-between;
